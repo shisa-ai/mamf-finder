@@ -1,0 +1,157 @@
+Instance Type: p5.48xlarge
+
+=============================================================================
+AMI Name: Deep Learning Base OSS Nvidia Driver GPU AMI (Ubuntu 20.04)
+Supported EC2 instances: G4dn, G5, G6, Gr6, G6e, P4d, P4de, P5, P5e
+NVIDIA driver version: 550.127.05
+CUDA versions available: cuda-12.1 cuda-12.2 cuda-12.3 cuda-12.4
+Default CUDA version is 12.1
+
+Release notes: https://docs.aws.amazon.com/dlami/latest/devguide/appendix-ami-release-notes.html
+AWS Deep Learning AMI Homepage: https://aws.amazon.com/machine-learning/amis/
+Developer Guide and Release Notes: https://docs.aws.amazon.com/dlami/latest/devguide/what-is-dlami.html
+Support: https://forums.aws.amazon.com/forum.jspa?forumID=263
+For a fully managed experience, check out Amazon SageMaker at https://aws.amazon.com/sagemaker
+=============================================================================
+   ____              __  ___     __             __ __                  ___          __
+  / __/__ ____ ____ /  |/  /__ _/ /_____ ____  / // /_ _____  ___ ____/ _ \___  ___/ /
+ _\ \/ _ `/ _ `/ -_) /|_/ / _ `/  '_/ -_) __/ / _  / // / _ \/ -_) __/ ___/ _ \/ _  /
+/___/\_,_/\_, /\__/_/  /_/\_,_/_/\_\\__/_/   /_//_/\_, / .__/\__/_/ /_/   \___/\_,_/
+         /___/                                    /___/_/
+
+To replace an instance run:
+   sudo scontrol update node=<hostname> state=fail reason="Action:Replace"
+
+To automatically resume jobs, please add the following in your job submission script:
+   srun --auto-resume=1
+
+You're on the compute
+Controller Node IP: 10.1.113.160
+Login Node IP: 10.1.32.226
+Instance Type: ml.p5.48xlarge
+Last login: Wed Dec 25 21:10:02 2024 from 10.1.32.226
+(base) ubuntu@ip-10-1-85-83:~$ nvcc --version
+Error: pool timed out while waiting for an open connection
+
+Location:
+    /home/runner/work/atuin/atuin/crates/atuin-client/src/record/sqlite_store.rs:48:20
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2023 NVIDIA Corporation
+Built on Mon_Apr__3_17:16:06_PDT_2023
+Cuda compilation tools, release 12.1, V12.1.105
+Build cuda_12.1.r12.1/compiler.32688072_0
+
+inxi -F
+
+System:    Host: ip-10-1-85-83 Kernel: 5.15.0-1072-aws x86_64 bits: 64 Console: N/A Distro: Ubuntu 20.04.6 LTS (Focal Fossa) 
+Machine:   Type: Kvm System: Amazon EC2 product: p5.48xlarge v: N/A serial: <superuser/root required> 
+           Mobo: Amazon EC2 model: N/A serial: <superuser/root required> BIOS: Amazon EC2 v: 1.0 date: 10/16/2017 
+CPU:       Topology: 2x 48-Core model: AMD EPYC 7R13 bits: 64 type: MCP SMP L2 cache: 48.0 MiB 
+           Speed: 2650 MHz min/max: N/A Core speeds (MHz): 1: 2650 2: 2650 3: 2650 4: 2650 5: 2650 6: 2650 7: 2650 8: 2650 
+           9: 2650 10: 2650 11: 2650 12: 2650 13: 2650 14: 2650 15: 2650 16: 2650 17: 2650 18: 2650 19: 2650 20: 2650 21: 2650 
+           22: 2650 23: 2650 24: 2650 25: 2650 26: 2650 27: 2650 28: 2650 29: 2650 30: 2650 31: 2650 32: 2650 33: 2650 
+           34: 2650 35: 2650 36: 2650 37: 2650 38: 2650 39: 2650 40: 2650 41: 2650 42: 2650 43: 2650 44: 2650 45: 2650 
+           46: 2650 47: 2650 48: 2650 49: 2650 50: 2650 51: 2650 52: 2650 53: 2650 54: 2650 55: 2650 56: 2650 57: 2929 
+           58: 2650 59: 2650 60: 2650 61: 2650 62: 2650 63: 2650 64: 2650 65: 2650 66: 2650 67: 2650 68: 2650 69: 2650 
+           70: 2650 71: 2650 72: 2650 73: 2650 74: 2650 75: 2650 76: 2650 77: 2650 78: 2650 79: 2650 80: 2650 81: 2650 
+           82: 2650 83: 2650 84: 2650 85: 2650 86: 2650 87: 2650 88: 2650 89: 2650 90: 2650 91: 2650 92: 2650 93: 2650 
+           94: 2650 95: 2650 96: 2650 
+Graphics:  Device-1: Amazon.com driver: N/A 
+           Device-2: NVIDIA GH100 [H100 SXM5 80GB] driver: nvidia v: 550.127.05 
+           Device-3: NVIDIA GH100 [H100 SXM5 80GB] driver: nvidia v: 550.127.05 
+           Device-4: NVIDIA GH100 [H100 SXM5 80GB] driver: nvidia v: 550.127.05 
+           Device-5: NVIDIA GH100 [H100 SXM5 80GB] driver: nvidia v: 550.127.05 
+           Device-6: NVIDIA GH100 [H100 SXM5 80GB] driver: nvidia v: 550.127.05 
+           Device-7: NVIDIA GH100 [H100 SXM5 80GB] driver: nvidia v: 550.127.05 
+           Device-8: NVIDIA GH100 [H100 SXM5 80GB] driver: nvidia v: 550.127.05 
+           Device-9: NVIDIA GH100 [H100 SXM5 80GB] driver: nvidia v: 550.127.05 
+           Display: server: X.org 1.20.13 driver: vesa unloaded: fbdev,modesetting tty: 139x68 
+           Message: Advanced graphics data unavailable in console. Try -G --display 
+Audio:     Message: No Device data found. 
+Network:   Device-1: Amazon.com Elastic Network Adapter driver: ena 
+           Device-2: Amazon.com Elastic Network Adapter driver: ena 
+           Device-3: Amazon.com Elastic Network Adapter driver: ena 
+           Device-4: Amazon.com Elastic Network Adapter driver: ena 
+           IF: enp74s0 state: up speed: N/A duplex: N/A mac: 0a:2e:85:cf:3d:b9 
+           Device-5: Amazon.com Elastic Network Adapter driver: ena 
+           Device-6: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-7: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-8: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-9: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-10: Amazon.com Elastic Network Adapter driver: ena 
+           Device-11: Amazon.com Elastic Network Adapter driver: ena 
+           Device-12: Amazon.com Elastic Network Adapter driver: ena 
+           Device-13: Amazon.com Elastic Network Adapter driver: ena 
+           Device-14: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-15: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-16: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-17: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-18: Amazon.com Elastic Network Adapter driver: ena 
+           Device-19: Amazon.com Elastic Network Adapter driver: ena 
+           Device-20: Amazon.com Elastic Network Adapter driver: ena 
+           Device-21: Amazon.com Elastic Network Adapter driver: ena 
+           Device-22: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-23: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-24: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-25: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-26: Amazon.com Elastic Network Adapter driver: ena 
+           Device-27: Amazon.com Elastic Network Adapter driver: ena 
+           Device-28: Amazon.com Elastic Network Adapter driver: ena 
+           Device-29: Amazon.com Elastic Network Adapter driver: ena 
+           Device-30: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-31: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-32: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-33: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-34: Amazon.com Elastic Network Adapter driver: ena 
+           Device-35: Amazon.com Elastic Network Adapter driver: ena 
+           Device-36: Amazon.com Elastic Network Adapter driver: ena 
+           Device-37: Amazon.com Elastic Network Adapter driver: ena 
+           Device-38: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-39: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-40: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-41: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-42: Amazon.com Elastic Network Adapter driver: ena 
+           Device-43: Amazon.com Elastic Network Adapter driver: ena 
+           Device-44: Amazon.com Elastic Network Adapter driver: ena 
+           Device-45: Amazon.com Elastic Network Adapter driver: ena 
+           Device-46: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-47: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-48: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-49: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-50: Amazon.com Elastic Network Adapter driver: ena 
+           Device-51: Amazon.com Elastic Network Adapter driver: ena 
+           Device-52: Amazon.com Elastic Network Adapter driver: ena 
+           Device-53: Amazon.com Elastic Network Adapter driver: ena 
+           Device-54: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-55: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-56: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-57: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-58: Amazon.com Elastic Network Adapter driver: ena 
+           Device-59: Amazon.com Elastic Network Adapter driver: ena 
+           Device-60: Amazon.com Elastic Network Adapter driver: ena 
+           Device-61: Amazon.com Elastic Network Adapter driver: ena 
+           Device-62: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-63: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-64: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-65: Amazon.com Elastic Fabric Adapter driver: efa 
+           Device-66: NVIDIA GH100 [H100 NVSwitch] type: network bridge driver: nvidia-nvswitch 
+           Device-67: NVIDIA GH100 [H100 NVSwitch] type: network bridge driver: nvidia-nvswitch 
+           Device-68: NVIDIA GH100 [H100 NVSwitch] type: network bridge driver: nvidia-nvswitch 
+           Device-69: NVIDIA GH100 [H100 NVSwitch] type: network bridge driver: nvidia-nvswitch 
+           IF-ID-1: docker0 state: down mac: 02:42:69:f4:ee:3a 
+           IF-ID-2: veth_def_agent state: up speed: 10000 Mbps duplex: full mac: e6:50:ee:4c:4f:0c 
+Drives:    Local Storage: total: 3.55 TiB used: 90.95 GiB (2.5%) 
+           ID-1: /dev/nvme0n1 model: Amazon Elastic Block Store size: 100.00 GiB 
+           ID-2: /dev/nvme1n1 model: Amazon Elastic Block Store size: 500.00 GiB 
+           ID-3: /dev/nvme2n1 model: Amazon EC2 NVMe Instance Storage size: 3.46 TiB 
+           ID-4: /dev/nvme3n1 model: Amazon EC2 NVMe Instance Storage size: 3.46 TiB 
+           ID-5: /dev/nvme4n1 model: Amazon EC2 NVMe Instance Storage size: 3.46 TiB 
+           ID-6: /dev/nvme5n1 model: Amazon EC2 NVMe Instance Storage size: 3.46 TiB 
+           ID-7: /dev/nvme6n1 model: Amazon EC2 NVMe Instance Storage size: 3.46 TiB 
+           ID-8: /dev/nvme7n1 model: Amazon EC2 NVMe Instance Storage size: 3.46 TiB 
+           ID-9: /dev/nvme8n1 model: Amazon EC2 NVMe Instance Storage size: 3.46 TiB 
+           ID-10: /dev/nvme9n1 model: Amazon EC2 NVMe Instance Storage size: 3.46 TiB 
+Partition: ID-1: / size: 96.73 GiB used: 51.98 GiB (53.7%) fs: ext4 dev: /dev/nvme0n1p1 
+Sensors:   Message: No sensors data was found. Is sensors configured? 
+Info:      Processes: 1520 Uptime: 23d 20h 32m Memory: 1.95 TiB used: 27.82 GiB (1.4%) Init: systemd runlevel: 5 Shell: bash 
+           inxi: 3.0.38 
